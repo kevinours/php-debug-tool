@@ -3,9 +3,10 @@
 $options possibles values :
 
     0 : doc
-    1 : vardump
-    2 : print_r
-    3 : get defined var
-    4 : get defined constants
-
+    1 : var_dump(v)
+    2 : print_r()
+    3 : console.log()
+    3 : get_defined_var()
+    4 : get_defined_constants()
+        
 $arg possibles values : whatever
