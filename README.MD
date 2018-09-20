@@ -6,7 +6,7 @@ $options possibles values :
     1 : var_dump()
     2 : print_r()
     3 : console.log()
-    3 : get_defined_var()
-    4 : get_defined_constants()
+    4 : get_defined_var()
+    5 : get_defined_constants()
         
 $arg possibles values : whatever
