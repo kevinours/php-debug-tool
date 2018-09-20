@@ -55,22 +55,3 @@ function dd($option='', $arg=''){
     echo $result;
 }
 
-
-
-
-$test = json_decode('{"kev":"lol?"}');
-
-dd(0, $test);
-
-
-
-//function test($arg='', $arg2=''){
-//
-//}
-
-
-//echo '<pre>';
-//print_r(get_defined_vars());
-//echo '</pre>';
-
-?>
