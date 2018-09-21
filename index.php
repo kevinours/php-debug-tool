@@ -1,10 +1,6 @@
 
 <?php
 
-$foo = 'je suis la variable foo';
-$array = array(1,2,3);
-//TO DO
-// add vardump pour du text -> detecher si var ou non
 
 function dd($option='', $arg=''){
 
@@ -15,6 +11,8 @@ function dd($option='', $arg=''){
 
     $jQuery = true; // true to load jQuery from the function - recommended to add it manually with the others scripts
     $dd_height_result = "500px"; // result window's height
+    $horizontal_position = "left"; //possibles values are left, right, middle
+    $vertical_position = "middle"; //possibles values are top, bottom, middle
 
 
 
@@ -31,12 +29,24 @@ function dd($option='', $arg=''){
                 width: 300px;
                 padding: 3px;
                 position: fixed;
-                bottom :0;
-                left: 0;
+                <?php if($horizontal_position != "middle"){
+
+                echo !empty($horizontal_position) ? $horizontal_position.":0;":"";
+                } else {
+                    echo "left : calc(50% - 150px);";
+                }?>
+
+                <?php if($vertical_position != "middle"){
+
+                echo !empty($vertical_position) ? $vertical_position.":0;":"";
+                } else {
+                    echo "top : calc(50% - 109px);";
+                }?>
                 display: none;
                 background-color: white;
                 z-index: 11;
-            } 
+            }
+
             
             .dd_container ul{
                text-align: left; 
@@ -47,8 +57,19 @@ function dd($option='', $arg=''){
                 height:50px;
                 background-color: #00ccff;
                 position: fixed;
-                bottom :0;
-                left: 0;
+                <?php if($horizontal_position != "middle"){
+
+                echo !empty($horizontal_position) ? $horizontal_position.":0;":"";
+                } else {
+                    echo "left : calc(50% - 25px);";
+                }?>
+
+                <?php if($vertical_position != "middle"){
+
+                echo !empty($vertical_position) ? $vertical_position.":0;":"";
+                } else {
+                    echo "top : calc(50% - 25px);";
+                }?>
                 z-index: 20;
             }
             
