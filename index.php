@@ -11,6 +11,8 @@ function dd($option='', $arg=''){
 
     $jQuery = true; // true to load jQuery from the function - recommended to add it manually with the others scripts
     $dd_height_result = "500px"; // result window's height
+    $dd_height_container = 220; //
+    $dd_width_container = 300; //
     $horizontal_position = "left"; //possibles values are left, right, middle
     $vertical_position = "middle"; //possibles values are top, bottom, middle
 
@@ -22,25 +24,48 @@ function dd($option='', $arg=''){
     }
 
     ?>
+
+    <script>
+
+        var dd_width = document.getElementById("dd_container").offsetWidth ;
+        var dd_height = document.getElementById("dd_container").offsetHeight;
+
+        function dd_show(){
+            $('.dd_arrow').fadeOut('slow','linear');
+            $('.dd_container').fadeIn('slow','linear');
+        }
+
+        function dd_close(){
+            $('.dd_arrow').fadeIn('slow','linear');
+            $('.dd_container').fadeOut('slow','linear');
+        }
+
+        function dd_close_result(){
+            $('.dd_result').fadeOut('slow','linear');
+        }
+    </script>
+
     <style>
             .dd_container{
                 border : 3px dashed black;
                 text-align: center;
-                width: 300px;
+                width: <?= $dd_width_container;?>px;
+                height: <?= $dd_height_container;?>px;
                 padding: 3px;
                 position: fixed;
                 <?php if($horizontal_position != "middle"){
 
                 echo !empty($horizontal_position) ? $horizontal_position.":0;":"";
                 } else {
-                    echo "left : calc(50% - 150px);";
+                    $w = ($dd_width_container+12)/2 ;
+                    echo 'left : calc(50% - '.$w.'px);';
                 }?>
 
                 <?php if($vertical_position != "middle"){
-
-                echo !empty($vertical_position) ? $vertical_position.":0;":"";
+                    echo !empty($vertical_position) ? $vertical_position.":0;":"";
                 } else {
-                    echo "top : calc(50% - 109px);";
+                    $h = ($dd_height_container+12)/2 ;
+                    echo 'top : calc(50% - '.$h.'px);';
                 }?>
                 display: none;
                 background-color: white;
@@ -105,21 +130,7 @@ function dd($option='', $arg=''){
             }
             
         </style>
-        <script>
-                function dd_show(){
-                    $('.dd_arrow').fadeOut('slow','linear');
-                    $('.dd_container').fadeIn('slow','linear');
-                }
 
-                function dd_close(){
-                    $('.dd_arrow').fadeIn('slow','linear');
-                    $('.dd_container').fadeOut('slow','linear');
-                }
-
-                function dd_close_result(){
-                    $('.dd_result').fadeOut('slow','linear');
-                }
-            </script>
 
     <?php
     switch ($option) {
