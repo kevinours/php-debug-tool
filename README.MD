@@ -1,6 +1,6 @@
 == doc ==
 
-Jquery is needeed.
+Jquery is needed.
 
 $options possibles values :
 
