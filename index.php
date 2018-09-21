@@ -1,7 +1,10 @@
 
 <?php
 
-$kev = "c cool";
+$foo = 'je suis la variable foo';
+$array = array(1,2,3);
+//TO DO
+// add vardump pour du text -> detecher si var ou non
 
 function dd($option='', $arg=''){
 
@@ -68,7 +71,7 @@ function dd($option='', $arg=''){
                 top : 2%;
                 left: 5%;
                 overflow: scroll;
-                height:$dd_height_result;
+                height: <?= $dd_height_result;?>;
             }            
             
             .dd_close_result{
@@ -105,8 +108,8 @@ function dd($option='', $arg=''){
                 echo '<h3>== tools ==</h3>';
                 echo '<form method="POST" id="dd_form">';
                     echo '<ul>';
-                        echo '<li>1 : var_dump(<input name="vd" class="dd_vd" type="text" placeholder="$...">)</li>';
-                        echo '<li>2 : print_r(<input name="pr" type="text" placeholder="$...">)</li>';
+                        echo '<li>1 : var_dump(<input name="vd" class="dd_vd" type="text" placeholder="$...">)<input name="vd_json" type="checkbox"></li>';
+                        echo '<li>2 : print_r(<input name="pr" type="text" placeholder="$...">)<input name="pr_json" type="checkbox"></li>';
                         echo '<li>3 : console.log(<input name="cl" type="text" placeholder="$...">)</li>';
                         echo '<li>4 : get_defined_var(<input name="gdv" type="checkbox">)</li>';
                         echo '<li>5 : get_defined_constants(<input name="gdc" type="checkbox">)</li>';
@@ -127,12 +130,27 @@ function dd($option='', $arg=''){
 
             if(isset($_POST['vd']) && !empty($_POST['vd'])){
                 global $$_POST['vd'];
-                var_dump($$_POST['vd']);
+                    if(isset($$_POST['vd'])){
+                        var_dump($$_POST['vd']);
+                    } else if(isset($_POST['vd_json'])){
+                        var_dump(json_decode($_POST['vd']));
+                    }
+                    else {
+                        var_dump($_POST['vd']);
+                    }
+
             }
             if(isset($_POST['pr']) && !empty($_POST['pr'])){
                 global $$_POST['pr'];
                 echo '<pre>';
-                    print_r($$_POST['pr']);
+                    if(isset($$_POST['pr'])){
+                        print_r($$_POST['pr']);
+                    } else if(isset($_POST['pr_json'])){
+                        print_r(json_decode($_POST['pr']));
+                    }else {
+                        print_r($_POST['pr']);
+
+                    }
                 echo '</pre>';
             }
             if(isset($_POST['cl']) && !empty($_POST['cl'])){
