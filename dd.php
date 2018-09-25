@@ -86,7 +86,7 @@ function dd($option='', $arg=''){
             .dd_container table{
                 margin: auto;
             }
-            
+
             .dd_arrow{
                 width: 30px;
                 height:100px;
@@ -109,6 +109,7 @@ function dd($option='', $arg=''){
                 writing-mode: vertical-rl;
                 text-orientation: upright;
                 cursor: pointer;
+                background-color: white;
             }
 
             .dd_arrow:hover{
@@ -124,7 +125,7 @@ function dd($option='', $arg=''){
                 text-transform: uppercase;
             }
 
-            
+
             .dd_close{
                 width: 15px;
                 height:15px;
@@ -132,8 +133,8 @@ function dd($option='', $arg=''){
                 top :0;
                 right: 0;
                 cursor: pointer;
-                margin-top: 2px;
-                margin-right: 7px;
+                margin-top: 4px;
+                margin-right: 12px;
             }
 
             .dd_close:hover{
@@ -144,23 +145,20 @@ function dd($option='', $arg=''){
             .dd_result{
                 z-index: 10;
                 width: 90%;
-                border-top: 2px lightgrey solid;
-                border-bottom: 2px lightgrey solid;
-                margin: auto;
                 position: fixed;
                 top : 2%;
                 left: 5%;
                 overflow: scroll;
                 height: <?= $dd_height_result;?>;
-            }            
-            
+            }
+
             .dd_close_result{
                 width: 15px;
                 height:15px;
                 cursor: pointer;
                 float : right;
                 z-index: 15;
-                margin-bottom: 100px;
+                margin: 10px;
             }
 
             .dd_close_result:hover{
@@ -191,7 +189,18 @@ function dd($option='', $arg=''){
                 top: 5px;
                 left: 5px;
             }
-
+            .dd_container table, .dd_container caption, .dd_container tbody, .dd_container tfoot, .dd_container thead, .dd_container tr, .dd_container th, .dd_container td {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font-size: 100%;
+                font: inherit;
+                vertical-align: baseline;
+            }
+            .dd_container table {
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
         </style>
 
 
